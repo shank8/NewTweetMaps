@@ -190,7 +190,7 @@ a:hover {
     font-size: 13px;
     box-sizing: border-box;
     border-bottom: 1px solid grey;
-    overflow-y:scroll;
+    overflow-y:hidden;
 }
 
 #mapSearchWrap {

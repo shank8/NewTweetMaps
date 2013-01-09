@@ -1,7 +1,9 @@
 ﻿//Windows.Storage.ApplicationData.current.roamingSettings.values['token'] = undefined;
 //Windows.Storage.ApplicationData.current.roamingSettings.values['secret'] = undefined;
 var expanded = false;
-
+var tweetInfo = [];
+var replyTweet = false;
+var replyID = 0;
 $(document).ready(function () {
     
     
@@ -61,6 +63,12 @@ $(document).ready(function () {
    
     }).blur(function(){
         searchPane.showOnKeyboardInput = true;
+        if (replyTweet) {
+            replyTweet = false;
+            $('#composeTweet').css("background", "#4099FF");
+        }
+    
+        
     }).keyup(function () {
         var str = $('#composeTweet').val();
         var len = str.length;
@@ -185,20 +193,41 @@ function getUserState() {
     }
 }
 
-function sendTweet() {
+function sendTweet(id) {
     var mystatus = $('#composeTweet').val();
 
+    if (replyTweet) {
+        oauth.post('http://api.twitter.com/1/statuses/update.json',
+            {
+                status: mystatus,
+                in_reply_to_status_id : id
+            },
+            function (data) {
 
-    oauth.post('http://api.twitter.com/1/statuses/update.json',
-        { status: mystatus },
-        function (data) {
-           
-        },
-        function (data) {
-            var d = data;
-        });
+            },
+            function (data) {
+                var d = data;
+            });
+  
+    } else {
+        oauth.post('http://api.twitter.com/1/statuses/update.json',
+            {
+                status: mystatus
+               
+            },
+            function (data) {
 
-    setTimeout(getHomeTimeline, 5000);
+            },
+            function (data) {
+                var d = data;
+            });
+    }
+
+        $('#composeTweet').val("");
+
+
+        setTimeout(getHomeTimeline, 5000);
+    
 }
 
 function getTweets() {
@@ -235,7 +264,8 @@ function getTweets() {
                     tweetHolder.id = tweet.id_str;
                     tweetHolder.time = tweet.created_at;
                     tweetHolder.location = tweet.location;
-
+                   
+                    tweetInfo.push(tweetHolder);
                     var date = new Date(Date.parse(tweet.created_at));
 
                     var curSeconds = currentTime.getSeconds() + currentTime.getMinutes() * 60 + currentTime.getHours() * 60 * 60 + currentTime.getDay() * 60 * 60 * 24;
@@ -335,7 +365,7 @@ function getProfile(oauth) {
             var username = toStaticHTML("<span id=\"profileUsername\">" + getUsernameLinkSimple(user.screen_name) + "</span>");
             var tweets = toStaticHTML("<br /><br /><span class=\"profileFF\">" + user.statuses_count + " TWEETS</span>");
             var followers = toStaticHTML("<span class=\"profileFF\">" + user.followers_count + " FOLLOWERS</span>");
-            var friends = toStaticHTML("<span class=\"profileFF\">" + user.friends_count + " FRIENDS</span>");
+            var friends = toStaticHTML("<span class=\"profileFF\">" + user.friends_count + " FOLLOWING</span>");
 
             var profileData = document.createElement("div");
             $(profileData).addClass("profileData");
@@ -437,3 +467,17 @@ function setRadius(){
     $(popup).append(messageObj).css('marginTop', document.documentElement.clientHeight / 2 - $(popup).height() / 2).css('marginLeft', document.documentElement.clientWidth / 2 - $(popup).width() / 2);
     $('#mapContainer').append(popup);
 }*/
+
+function retweet(id) {
+    var url = "http://api.twitter.com/1/statuses/retweet/" + id + ".json";
+    oauth.post();
+}
+
+function reply(id, author) {
+    $('#composeTweet').focus();
+    $('#composeTweet').val("@" + author + " ");
+    
+    $('#sendTweetBtn').html("Reply").css("background", "orange");
+    replyTweet = true;
+    replyID = id;
+}
