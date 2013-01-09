@@ -1,0 +1,481 @@
+﻿body {
+    background: #4099FF;
+    height: 100%;
+    display: -ms-flexbox;
+    overflow: auto;
+    -ms-content-zooming:none;
+    -ms-touch-action: none
+
+}
+h1 {
+    text-align: center;
+    margin: 0 auto;
+    color: black;
+    font-size: 40px;
+}
+
+a {
+    text-decoration: none;
+    color: #4099FF;
+}
+
+.aTrend {
+    width: 100%;
+    color: black;
+}
+    .aTrend a {
+        color:black;
+    }
+
+span a {
+    color: grey;
+}
+#tweetLength {
+    color:grey;
+    position:relative;
+    text-align:left;
+    width:100%;
+    margin-left:35px;
+    height:20px;
+    font-size:12px;
+   
+}
+
+a:hover {
+
+
+    color: #4099FF;
+}
+
+#twitterContainer, #mapContainer {
+    position: relative;
+    height: 720px;
+    width: 1366px;
+    float: left;
+}
+
+
+#trendWrap {
+    position: relative;
+    padding: 10px 25px;
+}
+
+.postName {
+    font-size: 16px;
+    font-weight: 800;
+    color: black;
+    margin-left: 10px;
+}
+
+.postImage {
+    float: left;
+    height: 55px;
+    width: 55px;
+    border: 2px solid grey;
+    border-radius: 5px;
+}
+
+.postUsername {
+    color: grey;
+    font-size: 14px;
+    margin-left: 10px;
+}
+
+.blockWrap {
+    width: 33%;
+    height: 100%;
+    float: left;
+}
+
+.infoWrap {
+    height: 90%;
+    width: 90%;
+    margin: 30px auto;
+    overflow:hidden;
+}
+
+.info {
+    height: 90%;
+    width: 90%;
+    margin: 0 auto;
+    position: relative;
+    background: #fff;
+    border-radius: 10px;
+    box-sizing: border-box;
+    border: 3px solid #ADADAD;
+    overflow-y: scroll;
+}
+
+.infoTitle {
+    width: 90%;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    position: relative;
+    background: #fff;
+    border-radius: 10px;
+    padding: 5px;
+    box-sizing: border-box;
+    border: 3px solid #ADADAD;
+   font-family: 'Segoe UI Semibold';
+   font-weight:600;
+
+   
+}
+
+.profileFF {
+    position: relative;
+    text-align: center;
+    margin: 0px 2px;
+    color: grey;
+    font-size: 12px;
+    font-weight: 800;
+    padding: 5px;
+}
+#refreshWrap {
+    position:relative;
+    margin:0 auto;
+    height:45px;
+    width:100%;
+    text-align:center;
+}
+#refreshBtn {
+    width:45px;
+    height:45px;
+    opacity:0;
+}
+    #refreshBtn:hover {
+        opacity:0.5;
+    }
+#profileWrap {
+    height: 100%;
+}
+
+#tweetWrap {
+    
+}
+
+#composeTweetContainer {
+    padding: 0 25px 25px 25px;
+    text-align: center;
+}
+
+#composeTweet {
+    border: 2px solid grey;
+}
+
+.aPost {
+    width: 100%;
+    min-height: 75px;
+    padding: 10px;
+    color: #000;
+    position: relative;
+    margin: 0;
+    background: #fff;
+    font-family: Calibri, 'Trebuchet MS';
+    font-size: 13px;
+    overflow-y: scroll;
+    box-sizing: border-box;
+    border-bottom: 1px solid grey;
+}
+
+.aTweet {
+    width: 100%;
+    min-height: 75px;
+    padding: 10px;
+    color: #000;
+    position: relative;
+    margin: 0;
+    background: #fff;
+    font-family: Calibri, 'Trebuchet MS';
+    font-size: 13px;
+    box-sizing: border-box;
+    border-bottom: 1px solid grey;
+    overflow-y:scroll;
+}
+
+#mapSearchWrap {
+    width: 400px;
+    margin: 10px auto;
+}
+
+    #mapSearchWrap input, #mapSearchWrap button {
+        display: inline-block;
+        padding: 0;
+        margin: 0;
+        border: 2px solid white;
+    }
+
+    #mapSearchWrap button {
+        margin-top: 20px;
+    }
+
+
+.aTweet:hover {
+    background: #C4E0FF;
+}
+
+#logoMainWrap {
+    height: 150px;
+    width: 620px;
+    margin: 20px auto;
+}
+
+#logoMain {
+    height: 100%;
+    width: 100%;
+}
+#suggestedLocationsList {
+    width:20%;
+    height:60%;
+    float:left;
+    overflow-y:scroll;
+    overflow-x:hidden;
+}
+.win-item {
+    width:100%;
+    padding:10px;
+    text-align:center;
+    background:#4099FF;
+    box-sizing:border-box;
+}
+ .win-container {
+       overflow-x:hidden;
+    }
+#mapDiv {
+    width: 60%;
+    height: 60%;
+    position: relative;
+    /*margin: 0 auto;*/
+    overflow: auto;
+    border: 2px solid white;
+    
+}
+
+
+#mapControls {
+    height: 40%;
+    width: 15%;
+    top: 35%;
+    right: 2.5%;
+    position: fixed;
+    border-radius: 25px;
+    opacity:0;
+}
+    
+    #mapControls .settingBtns {
+        width:50%;
+        height:12.5%;
+         /*margin:10.4% 25%;*/
+         margin:10% 25%;
+         opacity:1;
+    }
+   
+
+.tweetImage {
+    float: left;
+    height: 55px;
+    width: 55px;
+    border: 2px solid grey;
+    border-radius: 5px;
+}
+
+.tweetContent {
+    float: left;
+    margin-left: 10px;
+    height: 100%;
+    width: 75%;
+}
+
+.tweetUser {
+    font-size: 16px;
+    font-weight: 800;
+}
+
+.tweetUserName {
+    color: grey;
+    font-size: 14px;
+}
+
+.tweetTime {
+    float: right;
+    font-size: 110%;
+    color: grey;
+}
+
+#userArea {
+    float: left;
+    width: 70%;
+    height: 20%;
+    text-align: center;
+}
+
+#twitterLoginBtn {
+    position: relative;
+    width: 30%;
+    height: 70px;
+    border-radius: 25px;
+    background: #4099FF;
+    border: 4px solid #fff;
+    margin-top: 25px;
+    font-size: 26px;
+    font-family: 'Comic Sans MS';
+}
+
+#sendTweetBtn {
+    width: 100px;
+    height: 30px;
+    background: #4099FF;
+    border: 2px solid white;
+    margin:10px auto;
+}
+
+.profileHeader {
+    width: 80%;
+    margin: 0 auto;
+    padding: 10px;
+   
+}
+.profileData {
+    width:100%;
+    text-align:center;
+}
+#profilePic {
+    float: left;
+    height: 55px;
+    width: 55px;
+    border: 2px solid grey;
+    border-radius: 5px;
+}
+
+#profileName {
+    position: relative;
+    color: black;
+    font-size: 14px;
+    margin-left: 10px;
+    font-weight: 600;
+}
+
+#profileUsername {
+    position: relative;
+    color: black;
+    font-size: 14px;
+    margin-left: 10px;
+}
+
+#PINpage {
+    background: rgba(0,0,0,0.5);
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: 1000;
+}
+
+    #PINpage #PINinputWrap {
+        width: 500px;
+        height: 150px;
+        border-radius: 35px;
+        border: 8px solid white;
+        background: #4099FF;
+        margin: 200px auto;
+        position: relative;
+        text-align: center;
+    }
+
+        #PINpage #PINinputWrap h2 {
+            margin: 0px 0 0 0;
+            font-size: 20px;
+            padding: 0;
+        }
+
+        #PINpage #PINinputWrap #PINinput {
+            margin: 20px 10px;
+            padding: 0;
+        }
+
+button {
+    margin: 0;
+    padding: 0;
+}
+
+#loginTwitterBtn {
+    margin: 0 auto;
+}
+
+@media screen and (-ms-view-state: fullscreen-landscape) {
+}
+
+@media screen and (-ms-view-state: filled) {
+}
+
+@media screen and (-ms-view-state: snapped) {
+}
+
+@media screen and (-ms-view-state: fullscreen-portrait) {
+}
+
+
+#flexBox {
+    /*display: -ms-flexbox;
+     -ms-flex-direction: row;
+     -ms-flex-align: center;*/
+    overflow: scroll;
+}
+
+#settingsMenuWrap {
+    height:100%;
+    width:100%;
+    position:absolute;
+    
+}
+    #settingsMenuWrap #settingsBg {
+        height:200px;
+        width:500px;
+        position:absolute;
+        margin:0 auto;
+        font-weight:800;
+        z-index:999;
+        padding:25px;
+        background:#000;
+        opacity:0.7;
+    }
+    #settingsMenuWrap #settingsMenu {
+        height:200px;
+        width:500px;
+        position:absolute;
+        margin:0 auto;
+        font-weight:800;
+        z-index:1000;
+        padding:25px;
+    }
+#settingsExitBtn {
+    float:right;
+    height:20px;
+    width:20px;
+    font-weight:400;
+    text-align:center;
+}
+    #settingsExitBtn:hover {
+        color:#adadad;
+
+    }
+
+.settingsLabel {
+    float:left;
+    padding:10px;
+}
+.popup {
+    background: #fff;
+    border: 3px solid #4099FF;
+    border-radius: 25px;
+    position: absolute;
+}
+.locationItem {
+    text-align:center;
+    color:white;
+    padding:5px;
+    height:40px;
+    width:100%;
+}
+    .locationItem:hover {
+        font-size:110%;
+    }

@@ -1,0 +1,131 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>tweetMaps</title>
+
+    <!-- WinJS references -->
+    <link href="//Microsoft.WinJS.1.0/css/ui-dark.css" rel="stylesheet" />
+    <link href='http://fonts.googleapis.com/css?family=Chivo:400,900' rel='stylesheet' type='text/css'>
+    <script src="//Microsoft.WinJS.1.0/js/base.js"></script>
+    <script src="//Microsoft.WinJS.1.0/js/ui.js"></script>
+    <script src="/js/jquery1.8.2.js"></script>
+    <script src="/js/joAuth.js"></script>
+    <script src="/js/globalfunctions.js"></script>
+    <script src="/js/Objects/tweetMaps.js"></script>
+    <script src="/js/Objects/user.js"></script>
+
+
+    <!-- Bing Map Control references -->
+    <script type="text/javascript" src="ms-appx:///Bing.Maps.JavaScript//js/veapicore.js"></script>
+   
+
+    <script type="text/javascript">
+       
+     
+    </script>
+    <!-- tweetMaps references -->
+    <link href="/css/default.css" rel="stylesheet" />
+    <script src="/js/default.js"></script>
+</head>
+<body>
+   
+         <div id="PINpage">
+            <div id="PINinputWrap">
+                <h4>Input Pin</h4>
+                <input type="text" id="PINinput" />
+                <button id="PINsubmit" >Submit</button>
+            </div>
+        </div>
+
+        <!-- settings DOM -->
+        <div id="settingsMenuWrap">
+            <div id="settingsBg"></div>
+            <div id="settingsMenu">
+                <div id="settingsExitBtn" onclick="closeSettings()">X</div>
+                <h2 style="text-align:center;margin:20px 0;">Settings</h2>
+                <span class="settingsLabel">Search Radius:</span>
+                <select id="radiusSelect" onselect="setRadius()">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5" selected>5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                </select>
+                
+            </div>
+        </div>
+        <div id="mapContainer" >
+        <!-- This is some ghetto ass CSS -->
+        
+       <div id="logoMainWrap"> <img id="logoMain"src="/images/Tweet Maps TITLE LOGO.png" />
+           </div>
+        
+       <div id="suggestedLocationsList"></div>
+        <div id="mapDiv"></div>
+        <div id="mapControls">
+           <!-- <div id="addWrap"><img id="addBtn" class="settingBtns" src="/images/ADD icon.png" /></div> -->
+            <div id="homeWrap"><img id="findBtn" class="settingBtns" src="/images/FIND icon.png" /></div>
+            <div id="settingsWrap"><img id="settingsBtn" class="settingBtns" src="/images/SETTINGS icon.png" /></div>
+        </div>
+      <!--  <div id="mapSearchWrap"><input type="text" id="searchLocation" style="margin-top: 20px; margin-bottom: 20px;" />
+        <button onclick="searchLocation()" style="vertical-align: top; margin-right: 20px">Search</button>
+            </div> -->
+        
+        </div>
+
+         <div id="twitterContainer" >
+        <!-- This container will hold the profile information ONLY if the user is logged in -->
+      
+
+        <div class="blockWrap">
+            <div class="infoWrap">
+                 
+                 <div id="profileWrap" class="info" >
+               
+            <hr />
+                     <span id="tweetLength"></span>
+                     <div id="composeTweetContainer">
+                         <textarea  placeholder="Compose new Tweet..." id="composeTweet" rows="5" cols="10"></textarea>
+                         <button id="sendTweetBtn" onclick="sendTweet()">Tweet</button>
+                     </div>
+                     <h2 style="color:black;padding-left:25px;text-decoration:underline;">#Trends</h2>
+                     
+                    <div id="trendWrap" ></div>
+                     <div id="refreshWrap"><img id="refreshBtn" src="/images/refresh.png" /></div>
+                 </div>
+            </div> 
+       </div>
+
+        <div class="blockWrap">
+            <div class ="infoWrap">
+                <div class="infoTitle">
+                    <h1>Tweets</h1>
+                </div>
+                <div class="info">
+                   <div id="tweetWrap" ></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="blockWrap">
+        <div class="infoWrap">
+                <div class="infoTitle">
+                    <h1>Your Feed</h1>
+                </div>
+        <div class="info">
+            
+            <div id="timelineWrap"></div>
+        </div>
+        </div>
+            </div>
+
+        </div>
+    
+</body>
+</html>
