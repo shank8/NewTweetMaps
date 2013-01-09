@@ -4,7 +4,7 @@
     display: -ms-flexbox;
     overflow: auto;
     -ms-content-zooming:none;
-    -ms-touch-action: none
+    -ms-touch-action: manipulation;
 
 }
 h1 {
