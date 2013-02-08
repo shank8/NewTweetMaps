@@ -4,8 +4,6 @@
 var map;
 var searchPane;
 var radius = 5;
-var locationArray = [];
-
 
 (function () {
     "use strict";
@@ -14,7 +12,7 @@ var locationArray = [];
     
     var app = WinJS.Application;
     var activation = Windows.ApplicationModel.Activation;
-    
+
     InitSearch(); // allows searching from native search pane
     
     
@@ -49,14 +47,12 @@ var locationArray = [];
         var geolocator = Windows.Devices.Geolocation.Geolocator();
 
         var promise = geolocator.getGeopositionAsync();
-        
         navigator.geolocation.getCurrentPosition(function (pos) {
             mapCenter.latitude = pos.coords.latitude;
             mapCenter.longitude = pos.coords.longitude;
             glocation.latitude = pos.coords.latitude;
             glocation.longitude = pos.coords.longitude;
             map.setView({ center: mapCenter, zoom: 14 });
-
             if (tweetMap.registered == "registered") {
                 Init();
             } else {
@@ -111,70 +107,44 @@ function searchLocation(event) {
 
     $.getJSON(url,
         function (data) {
-
             // Get the name and longitudinal/langitudinal coordinates of the location
-
-           
-            locationArray = data.resourceSets[0].resources;
-            var parent = document.getElementById('suggestedLocationsList');
-            var domArray = [];
-            //now build up an DOM object for each item
-            jQuery.each(locationArray, function (index, value) {
-                var item = document.createElement('h4');
-                $(item).addClass('locationItem');
-                $(item).text(value.name);
-                domArray.push(item);
-            });
-            $(parent).html('');
-            $.each(domArray, function (index, value) {
-                $(parent).append(value);
-            });
-
             var coord = data.resourceSets[0].resources[0].point.coordinates;
-
-            $('.locationItem').click(function () {
-                var obj = this;
-                $.each(locationArray, function (index, value) {
-                    var name = obj.innerText;
-                    if (name == value.name) {
-                        coord = value.point.coordinates
-                        // name of the location 
-                        glocation.latitude = coord[0];   // latitude of location 
-                        glocation.longitude = coord[1];  // longitude of location
-                        getTweets();
-                        getTrends();
-                        var mapCenter = map.getCenter();
-                        mapCenter.latitude = glocation.latitude;
-                        mapCenter.longitude = glocation.longitude;
-                        map.setView({ center: mapCenter, zoom: 14 });
-                    }
-                });
-
-             
-
-            });
-
-            
-                    
-       
+           
           
-            // name of the location 
-            glocation.latitude = coord[0];   // latitude of location 
-            glocation.longitude = coord[1];  // longitude of location
-            getTweets();
-            getTrends();
+                
+                    
+                            // name of the location 
+                    glocation.latitude = coord[0];   // latitude of location 
+                    glocation.longitude = coord[1];  // longitude of location
+                    getTweets();
+                    getTrends();
 
-            var mapCenter = map.getCenter();
-            mapCenter.latitude = glocation.latitude;
-            mapCenter.longitude = glocation.longitude;
-            map.setView({ center: mapCenter, zoom: 14 });
+                    
                
            
         });
 
+    var mapOptions =
+        {
+            credentials: "AhoQuOQYyCKyw9VlX8prvs0_P_ZACG4h4abJlzRwcKI0wjPFr1_llD48-9u1nQg9",
+            mapTypeId: Microsoft.Maps.MapTypeId.birdseye
+        };
 
-        
+    map = new Microsoft.Maps.Map(document.getElementById("mapDiv"), mapOptions);
+    //var mapCenter = map.getCenter();
+    var mapCSSControl = document.getElementById("mapDiv").firstChild;
+    mapCSSControl.style.height = "40%";
+    mapCSSControl.style.width = "35%";
 
+
+
+
+    navigator.geolocation.getCurrentPosition(function (pos) {
+        var mapCenter = map.getCenter();
+        mapCenter.latitude = glocation.latitude;
+        mapCenter.longitude = glocation.longitude;
+        map.setView({ center: mapCenter, zoom:14 });
+    });
 
 
 

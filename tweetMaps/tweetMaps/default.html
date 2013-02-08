@@ -1,5 +1,19 @@
-﻿<!DOCTYPE html>
+﻿<!-- Twitter Buttons --> 
+<a href="https://twitter.com/share" class="twitter-share-button" data-lang="en">Tweet</a>
+<script>!function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = "https://platform.twitter.com/widgets.js"; fjs.parentNode.insertBefore(js, fjs); } }(document, "script", "twitter-wjs");</script>
+<!-- The favorite button --> 
+<style type="text/css" media="screen">
+    #custom-tweet-button a {
+    display: block;
+    padding: 2px 5px 2px 2px;
+    background: url('https://si0.twimg.com/images/dev/cms/intents/icons/favorite.png') 1px center no-repeat;
+    border: 1px solid #ccc;
+  }
+</style>
+
+<!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8" />
     <title>tweetMaps</title>
@@ -14,6 +28,7 @@
     <script src="/js/globalfunctions.js"></script>
     <script src="/js/Objects/tweetMaps.js"></script>
     <script src="/js/Objects/user.js"></script>
+    
 
 
     <!-- Bing Map Control references -->
@@ -21,7 +36,8 @@
    
 
     <script type="text/javascript">
-       
+      
+
      
     </script>
     <!-- tweetMaps references -->
@@ -39,7 +55,6 @@
         </div>
 
         <!-- settings DOM -->
-       
         <div id="settingsMenuWrap">
             <div id="settingsBg"></div>
             <div id="settingsMenu">
@@ -66,13 +81,13 @@
         
        <div id="logoMainWrap"> <img id="logoMain"src="/images/Tweet Maps TITLE LOGO.png" />
            </div>
-        
-       <div id="suggestedLocationsList"></div>
         <div id="mapDiv"></div>
         <div id="mapControls">
            <!-- <div id="addWrap"><img id="addBtn" class="settingBtns" src="/images/ADD icon.png" /></div> -->
             <div id="homeWrap"><img id="findBtn" class="settingBtns" src="/images/FIND icon.png" /></div>
             <div id="settingsWrap"><img id="settingsBtn" class="settingBtns" src="/images/SETTINGS icon.png" /></div>
+            
+            
         </div>
       <!--  <div id="mapSearchWrap"><input type="text" id="searchLocation" style="margin-top: 20px; margin-bottom: 20px;" />
         <button onclick="searchLocation()" style="vertical-align: top; margin-right: 20px">Search</button>
@@ -90,9 +105,8 @@
                  <div id="profileWrap" class="info" >
                
             <hr />
-                     <span id="tweetLength"></span>
                      <div id="composeTweetContainer">
-                         <textarea  placeholder="Compose new Tweet..." id="composeTweet" rows="5" cols="10"></textarea>
+                         <input type="text" id="composeTweet" value="Compose new Tweet..."/>
                          <button id="sendTweetBtn" onclick="sendTweet()">Tweet</button>
                      </div>
                      <h2 style="color:black;padding-left:25px;text-decoration:underline;">#Trends</h2>
@@ -108,16 +122,23 @@
                 <div class="infoTitle">
                     <h1>Tweets</h1>
                 </div>
+
                 <div class="info">
                    <div id="tweetWrap" ></div>
+                   
                 </div>
+                <div>
+                    <div id="tweetButtons"></div>
+                </div>
+                
             </div>
+           
         </div>
 
         <div class="blockWrap">
         <div class="infoWrap">
                 <div class="infoTitle">
-                    <h1>Your Feed</h1>
+                    <h1>Your Timeline</h1>
                 </div>
         <div class="info">
             
@@ -127,7 +148,6 @@
             </div>
 
         </div>
-
-          
+    
 </body>
 </html>

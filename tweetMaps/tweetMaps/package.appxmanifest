@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/2010/manifest">
-  <Identity Name="31342DaemonDeveloper.tweetMaps" Version="1.0.0.0" Publisher="CN=61D665C0-9695-45EF-BA1E-14369EC75752" />
+  <Identity Name="6ed82de5-60e7-4e3e-ae17-ad0ed77b9352" Version="1.0.0.0" Publisher="CN=Matt" />
   <Properties>
     <DisplayName>tweetMaps</DisplayName>
-    <PublisherDisplayName>DaemonDeveloper</PublisherDisplayName>
+    <PublisherDisplayName>Matt</PublisherDisplayName>
     <Logo>images\storelogo.png</Logo>
   </Properties>
   <Prerequisites>
@@ -15,12 +15,9 @@
   </Resources>
   <Applications>
     <Application Id="App" StartPage="default.html">
-      <VisualElements DisplayName="tweetMaps" Logo="images\Tweet Maps SQUARE ICON.png" SmallLogo="images\Tweet Maps SMALL LOGO.png" Description="tweetMaps uses Bing Maps and Twitter to give you the first Windows 8 geolocation based Twitter application!" ForegroundText="light" BackgroundColor="#4099FF">
+      <VisualElements DisplayName="tweetMaps" Logo="images\Tweet Maps SQUARE ICON.png" SmallLogo="images\Tweet Maps SMALL LOGO.png" Description="tweetMaps" ForegroundText="light" BackgroundColor="#4099FF">
         <DefaultTile ShowName="logoOnly" WideLogo="images\Tweet Maps WIDE SCREEN.png" />
         <SplashScreen Image="images\Tweet Maps SPLASH SCREEN1.png" BackgroundColor="#4099FF" />
-        <InitialRotationPreference>
-          <Rotation Preference="landscape" />
-        </InitialRotationPreference>
       </VisualElements>
       <Extensions>
         <Extension Category="windows.search" />
