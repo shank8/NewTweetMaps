@@ -52,12 +52,17 @@
   <ItemGroup>
     <Content Include="default.html" />
     <Content Include="images\ADD icon.png" />
-    <Content Include="images\favorite.png" />
     <Content Include="images\FIND icon.png" />
+    <Content Include="images\handler\favorite.png" />
+    <Content Include="images\handler\favorite_hover.png" />
+    <Content Include="images\handler\favorite_on.png" />
+    <Content Include="images\handler\reply.png" />
+    <Content Include="images\handler\reply_hover.png" />
+    <Content Include="images\handler\retweet.png" />
+    <Content Include="images\handler\retweet_hover.png" />
+    <Content Include="images\handler\retweet_on.png" />
     <Content Include="images\logo.png" />
     <Content Include="images\refresh.png" />
-    <Content Include="images\reply.png" />
-    <Content Include="images\retweet.png" />
     <Content Include="images\SETTINGS icon.png" />
     <Content Include="images\sidebarBG.png" />
     <Content Include="images\smalllogo.png" />

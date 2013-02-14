@@ -17,6 +17,7 @@ $(document).ready(function () {
     }).mouseleave(function(){
         $('#mapControls').css("display", "block");
     });
+
     $('#refreshBtn').click(function () {
         getTrends();
         getHomeTimeline();
@@ -59,16 +60,8 @@ $(document).ready(function () {
     }).blur(function(){
         searchPane.showOnKeyboardInput = true;
     });
-
-    // Reply to a tweet
-    $('.twitter_ReplyBtn').click(function () {
-        // Reply to the tweet
-    });
-
-    $('.twitter_RetweetBtn').click(function () {
-       var url = "https://api.twitter.com/1.1/statuses/retweet/241259202004267009.json";
-    }); 
-
+   
+    
 
 });
 
@@ -248,39 +241,54 @@ function getTweets() {
                     var timeElapsedSeconds = curSeconds - tweetSeconds;
 
                     tweetHolder.curSeconds = timeElapsedSeconds;
-
-
+            
+                    var tweetObj = $('<div>'); // Create a div to put the tweet
+                    tweetObj.addClass("aTweet");
                    
+                    var image = $('<img>');
+                    image.addClass('tweetImage').attr('src', tweetHolder.image_url);
 
+                   // var image = toStaticHTML("<img class=\"tweetImage\" src=\"" + tweetHolder.image_url + "\"></img>");
+
+                    var content = $('<div>');
+                    content.addClass('tweetContent');
+                    content.append($('<span>').addClass('tweetUser').html(tweetHolder.from_name));
+                    content.append($('<span>').addClass('tweetUserName').html(getUsernameLinkSimple(tweetHolder.from_username)));
+                    content.append($('<span>').addClass('tweetTime').html(getTweetTime(tweetHolder.curSeconds)));
+
+                    content.append($('<p>').html(getHashtagLink(getUsernameLink(replaceURLWithHTMLLinks(tweetHolder.content)))));
+
+
+
+                    //var content = toStaticHTML("<div class=\"tweetContent\"><span class=\"tweetUser\">" + tweetHolder.from_name + " </span><span class=\"tweetUserName\"> " + getUsernameLinkSimple(tweetHolder.from_username)  + "</span><span class=\"tweetTime\"> " + getTweetTime(tweetHolder.curSeconds) + "</span><br/>" + getHashtagLink(getUsernameLink(replaceURLWithHTMLLinks(tweetHolder.content))) + "</div>");
+                   
+                    var tweetButtons = $('<span>'); // Create a div for the tweet buttons
+                    tweetButtons.addClass("tweetButtons");
+
+                    var replyButton = $('<img>');
+                    replyButton.addClass('tweetHandler').addClass('replyBtn').attr('src', '/images/handler/reply.png');
+
+                    $(tweetButtons).append(replyButton);
+
+                    var favoriteButton = $('<img>');
+                    favoriteButton.addClass('tweetHandler').addClass('favBtn').attr('src', '/images/handler/favorite.png');
+
+                    $(tweetButtons).append(favoriteButton);
+
+                    var retweetButton = $('<img>');
+                    retweetButton.addClass('tweetHandler').addClass('retweetBtn').attr('src', '/images/handler/retweet.png');
                     
-                    var tweetObj = document.createElement("div"); // Create a div to put the tweet
-                    $(tweetObj).addClass("aTweet");
-                   
+                    $(tweetButtons).append(retweetButton);
+                    
+                    content.append(tweetButtons);
 
-                    var image = toStaticHTML("<img class=\"tweetImage\" src=\"" + tweetHolder.image_url + "\"></img>");
-
-                    var content = toStaticHTML("<div class=\"tweetContent\"><span class=\"tweetUser\">" + tweetHolder.from_name + " </span><span class=\"tweetUserName\"> " + getUsernameLinkSimple(tweetHolder.from_username)  + "</span><span class=\"tweetTime\"> " + getTweetTime(tweetHolder.curSeconds) + "</span><br/>" + getHashtagLink(getUsernameLink(replaceURLWithHTMLLinks(tweetHolder.content))) + "</div>");
                     $(tweetObj).append(image);
                     $(tweetObj).append(content);
 
-                    var tweetButtons = document.createElement("div"); // Create a div for the tweet buttons
-                    $(tweetButtons).addClass("tweetButtons");
-
-                    var replyButton = toStaticHTML("<img class=\"twitter_ReplyBtn\" src=\"/images/reply.png\"></img>");
-                    $(tweetButtons).append(replyButton);
-
-                    var favoriteButton = toStaticHTML("<img class=\"twitter_FavoriteBtn\" src=\"/images/favorite.png\"></img>");
-                    $(tweetButtons).append(favoriteButton);
-
-                    var retweetButton = toStaticHTML("<img class=\"twitter_RetweetBtn\" src=\"/images/retweet.png\"></img>");
-                    $(tweetButtons).append(retweetButton);
-                    
                   
-                    tweetDOM.push(tweetButtons);
+                    
                     tweetDOM.push(tweetObj);
                     
-                    
-                    tweetArr.push(tweetButtons); 
                     tweetArr.push(tweetHolder);
                     
                     
@@ -293,8 +301,26 @@ function getTweets() {
                 $(tweetWrap).append(tweetDOM[i]);
             }
 
+            // Reply to a tweet
+            $('.aTweet').hover(function () {
+                $(this).children('.tweetContent').children('.tweetButtons').css('opacity', '1');
+            }, function () {
+                $(this).children('.tweetContent').children('.tweetButtons').css('opacity', '0');
+            });
+
+            $(".favBtn").on("click", function (event) {
+                $(this).css('background', 'url(/images/handler/favorite_on.png)');
+            });
+
+            $('.retweetBtn').on('click', function (event) {
+                $(this).css('background', 'url(/images/handler/retweet_on.png)');
+            });
+
+
         }
     );
+
+  
 }
 function getTrends() {
     var url = "https://api.twitter.com/1.1/trends/closest.json?long=" + glocation.longitude + "&lat=" + glocation.latitude;

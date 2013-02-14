@@ -5,7 +5,6 @@
     overflow: auto;
     tn -ms-content-zooming:none;
     -ms-touch-action: none
-
 }
 
 h1 {
@@ -91,7 +90,7 @@ a:hover {
     background: #fff;
     border-radius: 10px;
     box-sizing: border-box;
-    border: 3px solid #ADADAD;
+    border: 2px solid #ADADAD;
     overflow-y: scroll;
 }
 
@@ -104,7 +103,7 @@ a:hover {
     border-radius: 10px;
     padding: 5px;
     box-sizing: border-box;
-    border: 3px solid #ADADAD;
+    border: 2px solid #ADADAD;
    font-family: 'Segoe UI Semibold';
    font-weight:600;
 
@@ -181,23 +180,45 @@ a:hover {
     border-bottom: 1px solid grey;
     
 }
-
+    .aTweet:hover
+    {
+        background:#EDEDED;
+    }
 .tweetButtons {
     float:left; 
-    width:100%; 
-    min-height:15px;
-    padding:5px; 
-    color: #000;
-    position:relative; 
-    margin:0; 
-    margin-left:30px; 
-    background:#fff;
-    display:inline; 
+    height:16px;
+    display:inline;
+    opacity:0;
+    margin-top:5px;
+}
+.tweetHandler {
+    float:left;
+    height:16px;
+    width:16px;
+    display:block;
+    margin-left:5px;
+}
+.replyBtn {
+    background:url('/images/handler/reply.png');*/
+}
+.replyBtn:hover
+{
+    background:url('/images/handler/reply_hover.png');
+}
+.favBtn{
+    background:url('/images/handler/favorite.png');
+}
+    .favBtn:hover
+    {
+        background:url('/images/handler/favorite_hover.png');
+    }
+.retweetBtn{
+    background:url('/images/handler/retweet.png');
+}
+.retweetBtn:hover{
+    background:url('/images/handler/retweet_hover.png');
 }
 
-#favoriteButton {
-    
-}
 #mapSearchWrap {
     width: 400px;
     margin: 10px auto;
@@ -213,12 +234,6 @@ a:hover {
     #mapSearchWrap button {
         margin-top: 20px;
     }
-
-
-.aTweet:hover {
-    background: #C4E0FF;
-}
-
 
 
 #logoMainWrap {
@@ -275,8 +290,13 @@ a:hover {
     margin-left: 10px;
     height: 100%;
     width: 75%;
+   
 }
-
+    .tweetContent p
+    {
+         margin:0;
+         padding:0;
+    }
 .tweetUser {
     font-size: 16px;
     font-weight: 800;
@@ -450,33 +470,3 @@ button {
     float:left;
     padding:10px;
 }
-
-.tweetButtons twitter_ReplyBtn {
-    float:left; 
-    height:15px; 
-    width:15px; 
-    margin-left:5px; 
-}
-    .twitter_ReplyBtn:hover {
-        background: #C4E0FF;
-    }
-
-.twitter_FavoriteBtn {
-    float:left; 
-    height:15px; 
-    width:15px; 
-    margin-left:5px; 
-}
-    .twitter_FavoriteBtn:hover {
-        background: #C4E0FF;
-    }
-
-.twitter_RetweetBtn {
-    float:left; 
-    height:15px; 
-    width:15px; 
-    margin-left:5px; 
-}
-.twitter_RetweetBtn:hover {
-        background: #C4E0FF;
-    }
