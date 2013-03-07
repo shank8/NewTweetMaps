@@ -101,7 +101,7 @@ function searchLocation(event) {
         url += arrayOfWords[i];
     }
 
-    url += "?inclnb=1&key=AhoQuOQYyCKyw9VlX8prvs0_P_ZACG4h4abJlzRwcKI0wjPFr1_llD48-9u1nQg9";
+    url += "?inclnb=1&key=Ao5Db3mOvlNH4G7lgK5WV0XWdm4mdVFZc7_vB8VajuR70hLR92egwnjiWpT67l0T";
 
 
 
@@ -126,7 +126,7 @@ function searchLocation(event) {
 
     var mapOptions =
         {
-            credentials: "AhoQuOQYyCKyw9VlX8prvs0_P_ZACG4h4abJlzRwcKI0wjPFr1_llD48-9u1nQg9",
+            credentials: "Ao5Db3mOvlNH4G7lgK5WV0XWdm4mdVFZc7_vB8VajuR70hLR92egwnjiWpT67l0T",
             mapTypeId: Microsoft.Maps.MapTypeId.birdseye
         };
 
