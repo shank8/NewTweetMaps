@@ -126,6 +126,8 @@ function twitterLogon(oauth) {
     oauth.get('https://twitter.com/oauth/request_token',
     function (data) {
         window.open('https://twitter.com/oauth/authorize?' + data.text);
+
+        searchPane.showOnKeyboardInput = false;
         $('#PINpage').show();
         requestParams = data.text;
     },
@@ -161,6 +163,8 @@ function submitPIN(oauth, requestParams) {
 
                 oauth.setVerifier($('#PINinput').val());
                 $('#PINpage').hide();
+              
+                searchPane.showOnKeyboardInput = true;
                 tweetMap.userstate = "loggedin";
                 Init();
             },
@@ -262,25 +266,25 @@ function getTweets() {
 
                     //var content = toStaticHTML("<div class=\"tweetContent\"><span class=\"tweetUser\">" + tweetHolder.from_name + " </span><span class=\"tweetUserName\"> " + getUsernameLinkSimple(tweetHolder.from_username)  + "</span><span class=\"tweetTime\"> " + getTweetTime(tweetHolder.curSeconds) + "</span><br/>" + getHashtagLink(getUsernameLink(replaceURLWithHTMLLinks(tweetHolder.content))) + "</div>");
                    
-                    var tweetButtons = $('<span>'); // Create a div for the tweet buttons
-                    tweetButtons.addClass("tweetButtons");
+                    //var tweetButtons = $('<span>'); // Create a div for the tweet buttons
+                    //tweetButtons.addClass("tweetButtons");
 
-                    var replyButton = $('<img>');
-                    replyButton.addClass('tweetHandler').addClass('replyBtn').attr('src', '/images/handler/reply.png');
+                    //var replyButton = $('<img>');
+                    //replyButton.addClass('tweetHandler').addClass('replyBtn').attr('src', '/images/handler/reply.png');
 
-                    $(tweetButtons).append(replyButton);
+                    //$(tweetButtons).append(replyButton);
 
-                    var favoriteButton = $('<img>');
-                    favoriteButton.addClass('tweetHandler').addClass('favBtn').attr('src', '/images/handler/favorite.png');
+                    //var favoriteButton = $('<img>');
+                    //favoriteButton.addClass('tweetHandler').addClass('favBtn').attr('src', '/images/handler/favorite.png');
 
-                    $(tweetButtons).append(favoriteButton);
+                    //$(tweetButtons).append(favoriteButton);
 
-                    var retweetButton = $('<img>');
-                    retweetButton.addClass('tweetHandler').addClass('retweetBtn').attr('src', '/images/handler/retweet.png');
+                    //var retweetButton = $('<img>');
+                    //retweetButton.addClass('tweetHandler').addClass('retweetBtn').attr('src', '/images/handler/retweet.png');
                     
-                    $(tweetButtons).append(retweetButton);
+                    //$(tweetButtons).append(retweetButton);
                     
-                    content.append(tweetButtons);
+                    //content.append(tweetButtons);
 
                     $(tweetObj).append(image);
                     $(tweetObj).append(content);
