@@ -3,8 +3,8 @@
     height: 100%;
     display: -ms-flexbox;
     overflow: auto;
-    tn -ms-content-zooming:none;
-    -ms-touch-action: none
+    -ms-content-zooming:none;
+    -ms-touch-action: manipulation;
 }
 
 h1 {
