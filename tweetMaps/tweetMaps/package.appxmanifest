@@ -4,7 +4,7 @@
   <Properties>
     <DisplayName>tweetMaps</DisplayName>
     <PublisherDisplayName>Matt</PublisherDisplayName>
-    <Logo>images\storelogo.png</Logo>
+    <Logo>images\Tweet Maps STORE LOGO.png</Logo>
   </Properties>
   <Prerequisites>
     <OSMinVersion>6.2.1</OSMinVersion>

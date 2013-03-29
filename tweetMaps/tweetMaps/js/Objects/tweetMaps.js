@@ -416,9 +416,11 @@ function getTweetTime(curSeconds) {
 }
 
 function getLocation() {
-    var center = map.getCenter();
-    glocation.latitude = center.latitude;
-    glocation.longitude = center.longitude;
+    if (map != undefined) {
+        var center = map.getCenter();
+        glocation.latitude = center.latitude;
+        glocation.longitude = center.longitude;
+    }
 }
 
 function getHomeTimeline() {
