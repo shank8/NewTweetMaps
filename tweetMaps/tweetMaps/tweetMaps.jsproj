@@ -47,7 +47,9 @@
     <TargetPlatformIdentifier>Windows</TargetPlatformIdentifier>
     <TargetPlatformVersion>8.0</TargetPlatformVersion>
     <DefaultLanguage>en-US</DefaultLanguage>
-    <PackageCertificateKeyFile>tweetMaps_TemporaryKey.pfx</PackageCertificateKeyFile>
+    <PackageCertificateKeyFile>tweetMaps_StoreKey.pfx</PackageCertificateKeyFile>
+    <AppxAutoIncrementPackageRevision>False</AppxAutoIncrementPackageRevision>
+    <PackageCertificateThumbprint>D386B5E3EAD239C3720EC22D6534E1881910E701</PackageCertificateThumbprint>
   </PropertyGroup>
   <ItemGroup>
     <Content Include="default.html" />
@@ -86,6 +88,8 @@
     <Content Include="js\Objects\searchResults.js" />
     <Content Include="js\Objects\tweetMaps.js" />
     <Content Include="js\Objects\user.js" />
+    <None Include="tweetMaps_StoreKey.pfx" />
+    <None Include="Package.StoreAssociation.xml" />
     <None Include="tweetMaps_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
